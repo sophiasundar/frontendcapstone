@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Routes, Route } from "react-router-dom";
+// import { useState } from 'react';
+import { DisplayLap } from './components/laptop/DisplayLap';
+import Welcome from './components/navBar/welcome.js';
+
 
 function App() {
+  // const [lapData, setLapData] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+            
+          <Route path='/welcome' element={<Welcome/>}></Route>
+          <Route path='/displaylaptop' element={ <DisplayLap/> }></Route>
+
+        </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 }
