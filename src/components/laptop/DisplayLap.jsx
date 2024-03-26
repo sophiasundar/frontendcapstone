@@ -47,4 +47,4 @@ import NavBar from '../navBar/navBar.js';
 
             </div>
         )
-    }
+    }                                                                                                                 

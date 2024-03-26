@@ -6,67 +6,67 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { API } from '../global';
 
-  export function EditCosWm(){
+export function EditClothMen(){
     const {id} = useParams()
-    const [cosWm, setCosWm] = useState();
+    const [clothMen, setClothMen] = useState();
 
     useEffect(()=>{
            
-        axios.get(`${API}/coswomen/${id}`)
+        axios.get(`${API}/clothingmen/${id}`)
         .then((res)=>{
             console.log(res.data);
-            setCosWm(res.data);
+            setClothMen(res.data);
         })
 
      },[id]);
 
-     if(cosWm){
-      return <EditCosWt cosWm={cosWm} id={id}/>
-    }else {
-      return "Loading...";
-     }
+     if(clothMen){
+        return <EditClothM clothMen={clothMen} id={id} />
+      }else {
+        return "Loading...";
+       }
+    
+}
 
-  }
-
-  function EditCosWt({ cosWm, id }){
-    const [name,setName] = useState(cosWm.name)
-    const [price,setPrice] = useState(cosWm.price)
-    const [brand,setBrand] = useState(cosWm.brand)
-    const [size,setSize] = useState(cosWm.size)
-    const [about,setAbout] = useState(cosWm.about)
-    const [images,setImages] =useState(cosWm.images)
+function EditClothM({ clothMen, id }){
+    const [name,setName] = useState(clothMen.name)
+    const [price,setPrice] = useState(clothMen.price)
+    const [brand,setBrand] = useState(clothMen.brand)
+    const [fabric,setFabric] = useState(clothMen.fabric)
+    const [about,setAbout] = useState(clothMen.about)
+    const [images,setImages] =useState(clothMen.images)
 
     const [validated, setValidated] = useState(false);
 
     const navigate = useNavigate()
 
     const handleSubmit = (e) =>{
-        const updateCosWm ={
+        const updateClothMen ={
             name: name,
             price:price,
             brand: brand,
-            size:size,
+            fabric:fabric,
             about:about,
             images:images,
         }
-        console.log(updateCosWm)
+        console.log(updateClothMen)
 
-        if(updateCosWm.name === ""){
+        if(updateClothMen.name === ""){
             setValidated("VALID: Name is required");
             return;
-         }else if(updateCosWm.price === ""){
+         }else if(updateClothMen.price === ""){
             setValidated("VALID: Price is required");
             return;
-         }else if(updateCosWm.brand === ""){
+         }else if(updateClothMen.brand === ""){
             setValidated("VALID: Brand is required");
             return;
-         }else if(updateCosWm.size === ""){
-            setValidated("VALID: Size is required");
+         }else if(updateClothMen.fabric === ""){
+            setValidated("VALID: Fabric is required");
             return;
-         }else if(updateCosWm.about === ""){
+         }else if(updateClothMen.about === ""){
             setValidated("VALID: About is required");
             return;
-         }else if(updateCosWm.images === ""){
+         }else if(updateClothMen.images === ""){
             setValidated("VALID: Images is required");
             return;
          }else{
@@ -80,27 +80,25 @@ import { API } from '../global';
          }
           setValidated(true);
 
-          fetch(`${API}/coswomen/${cosWm._id}`,{
+          fetch(`${API}/clothingmen/${clothMen._id}`,{
             method: "PUT",
-            body: JSON.stringify(updateCosWm),
+            body: JSON.stringify(updateClothMen),
             headers:{ "Content-Type": "application/json" },
          })
          .then((data)=> data.json())
-         .then(()=> navigate("/cosmeticsforwomen"))
+         .then(()=> navigate("/clothingformen"))   
+    }
+    return(
+        <div>
 
-  } 
-
-  return(
-    <div>
-        
-        <h4 className='titleform' > Edit Cosmetics (WOMEN) </h4>
+           <h4 className='titleform' > Edit Clothing (Men) </h4>
                  
                  <Form>
                  <h6 className="valid" >{validated}</h6>
 
                      <Form.Group className="mb-3" controlId="name">
-                         <Form.Label>Cosmetics Name :</Form.Label>
-                         <Form.Control className='ph1' type="text" placeholder="Enter The Cosmetics Name"
+                         <Form.Label>Clothing Name :</Form.Label>
+                         <Form.Control className='ph1' type="text" placeholder="Enter The Name"
                                value={name}
                                onChange={(e)=>{
                                  setName(e.target.value)
@@ -110,8 +108,8 @@ import { API } from '../global';
                      </Form.Group>
  
                      <Form.Group className="mb-3" controlId="price">
-                         <Form.Label>Cosmetics Price :</Form.Label>
-                         <Form.Control type="text" placeholder="Enter The Cosmetics Price" 
+                         <Form.Label>Clothing Price :</Form.Label>
+                         <Form.Control type="text" placeholder="Enter The Price" 
                               value={price}
                               onChange={(e)=>{
                                 setPrice(e.target.value)
@@ -120,8 +118,8 @@ import { API } from '../global';
                      </Form.Group>
  
                      <Form.Group className="mb-3" controlId="brand">
-                         <Form.Label>Cosmetics Brand :</Form.Label>
-                         <Form.Control type="text" placeholder="Enter The Cosmetics Brand" 
+                         <Form.Label>Clothing Brand :</Form.Label>
+                         <Form.Control type="text" placeholder="Enter The Brand" 
                              value={brand}
                              onChange={(e)=>{
                                setBrand(e.target.value)
@@ -130,18 +128,18 @@ import { API } from '../global';
                      </Form.Group>
  
                      <Form.Group className="mb-3" controlId="diplay">
-                         <Form.Label>Cosmetics Size :</Form.Label>
-                         <Form.Control type="text" placeholder="Enter The Cosmetics Size" 
-                              value={size}
+                         <Form.Label>Clothing Fabric :</Form.Label>
+                         <Form.Control type="text" placeholder="Enter The Fabric" 
+                              value={fabric}
                               onChange={(e)=>{
-                                setSize(e.target.value)
+                                setFabric(e.target.value)
                               }} 
                          />
                      </Form.Group>
  
                      <Form.Group className="mb-3" controlId="about">
-                         <Form.Label>Cosmetics About :</Form.Label>
-                         <Form.Control type="text" placeholder="Enter The Cosmetics About" 
+                         <Form.Label>Clothing About :</Form.Label>
+                         <Form.Control type="text" placeholder="Enter The About" 
                                value={about}
                                onChange={(e)=>{
                                  setAbout(e.target.value)
@@ -150,8 +148,8 @@ import { API } from '../global';
                      </Form.Group>
 
                      <Form.Group className="mb-3" controlId="image">
-                         <Form.Label>Cosmetics Image :</Form.Label>
-                         <Form.Control type="text" placeholder="Enter The Cosmetics Image Link in Jpeg/png format" 
+                         <Form.Label>Clothing Image :</Form.Label>
+                         <Form.Control type="text" placeholder="Enter The Image Link in Jpeg/png format" 
                                value={images}
                                onChange={(e)=>{
                                  setImages(e.target.value)
@@ -166,7 +164,7 @@ import { API } from '../global';
                      <Button  className='addbtn1' variant="primary"
                                  onClick={handleSubmit}
                      >
-                         Edit Cosmetics
+                         Edit Clothing
                      </Button>
  
                      <Button className='addbtn2' variant="primary"
@@ -182,7 +180,6 @@ import { API } from '../global';
                      
                  </Form>
 
-    </div>
-  )
-
+        </div>
+    )
 }

@@ -51,7 +51,7 @@ function NavBar(){
                    <NavDropdown title="Cosmetics" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/cosmeticsformen">Men</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/cosmeticsforwomen">
                       Women
                     </NavDropdown.Item>
                     </NavDropdown>
@@ -61,9 +61,9 @@ function NavBar(){
                    {/* dropdown3*/}
                    <Button className='drop3' variant="light"  size="sm"><Nav.Link href="#features"> 
                    <NavDropdown title="Clothing" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/displaylaptop">Men's wear</NavDropdown.Item>
+                    <NavDropdown.Item href="/clothingformen">Men's wear</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/clothingforwomen">
                       Women's wear
                     </NavDropdown.Item>
                     </NavDropdown>
@@ -80,20 +80,20 @@ function NavBar(){
                      Add Phones
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/addcosmen">
                      Add Cosmetics for Men
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/addcoswomen">
                      Add Cosmetics for Women
                     </NavDropdown.Item>
                     
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/addclothmen">
                      Add Clothing for Men
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/addclothwomen">
                      Add Clothing for Women
                     </NavDropdown.Item>
                     </NavDropdown>

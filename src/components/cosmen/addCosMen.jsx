@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { API } from '../global';
+import { API } from '../global.js'
 
-  function AddCosWm({setCosWmData}){
+
+   function AddCosMen({setCosMenData}){
     const [name,setName] = useState("")
     const [price,setPrice] = useState("")
     const [brand,setBrand] = useState("")
@@ -15,9 +16,9 @@ import { API } from '../global';
     const [validated, setValidated] = useState(false);
 
     const navigate = useNavigate()
-      
+
     const handleSubmit = async (e) =>{
-        const newCosWm ={
+        const newCosMen ={
             name: name,
             price:price,
             brand: brand,
@@ -25,24 +26,24 @@ import { API } from '../global';
             about:about,
             images:images,
         }
-        console.log(newCosWm)
+        console.log(newCosMen)
 
-        if(newCosWm.name === ""){
+        if(newCosMen.name === ""){
             setValidated("VALID: Name is required");
             return;
-         }else if(newCosWm.price === ""){
+         }else if(newCosMen.price === ""){
             setValidated("VALID: Price is required");
             return;
-         }else if(newCosWm.brand === ""){
+         }else if(newCosMen.brand === ""){
             setValidated("VALID: Brand is required");
             return;
-         }else if(newCosWm.size === ""){
+         }else if(newCosMen.size === ""){
             setValidated("VALID: Size is required");
             return;
-         }else if(newCosWm.about === ""){
+         }else if(newCosMen.about === ""){
             setValidated("VALID: About is required");
             return;
-         }else if(newCosWm.images === ""){
+         }else if(newCosMen.images === ""){
             setValidated("VALID: Images is required");
             return;
          }else{
@@ -56,23 +57,22 @@ import { API } from '../global';
          }
           setValidated(true);
 
-          fetch(`${API}/coswomen`,{
+          fetch(`${API}/cosmen`,{
             method: "POST",
-            body:JSON.stringify(newCosWm),
+            body:JSON.stringify(newCosMen),
             headers:{
                 "Content-Type": "application/json"
             },
           }).then((data)=>data.json())
             .then((res)=>{
-            setCosWmData(res);
+            setCosMenData(res);
             console.log(res)
           })
-          .then(()=>navigate("/cosmeticsforwomen"))
-     }
+          .then(()=>navigate("/cosmeticsformen"))
+    }
     return(
         <div>
-             
-             <h4 className='titleform' >Add Cosmetics (WOMEN) </h4>
+            <h4 className='titleform' >Add Cosmetics (MEN) </h4>
 
             <Form>
                 <h4 className="valid" >{validated}</h4>
@@ -143,7 +143,7 @@ import { API } from '../global';
                     <Button  className='addbtn1' variant="primary"
                                 onClick={handleSubmit}
                     >
-                        Add Cosmetics Men
+                        Add Cosmetics
                     </Button>
 
                     <Button className='addbtn2' variant="primary"
@@ -158,6 +158,6 @@ import { API } from '../global';
 
         </div>
     )
-  }
+   }
 
-  export default AddCosWm
+   export default AddCosMen;

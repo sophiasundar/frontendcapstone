@@ -7,21 +7,21 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-  function CosWmCard({value,handleDelete}){
-    const [show,setShow] = useState(false);
+    function ClothWmCard({value,handleDelete}){
+        const [show,setShow] = useState(false);
 
-    const toggleSummary ={
-        display:show?"block":"none"
-    }
+        const toggleSummary ={
+            display:show?"block":"none"
+        }
 
-    console.log(toggleSummary.display);
+        console.log(toggleSummary.display);
 
-    const navigate = useNavigate();
-    
-    return(
-        <div className='cardContainer' >
+        const navigate = useNavigate();
 
-<Card className='card' >
+        return(
+            <div className='cardContainer'>
+              
+              <Card className='card' >
                     <div>
                 <Card.Img className='cardImg' alt={value.name}  variant="top" src={value.images} /> </div>
                     {/* <Card.Body> */}
@@ -31,14 +31,14 @@ import { MdDelete } from "react-icons/md";
                     <ListGroup className="list-group-flush" >
                                 <ListGroup.Item> <b>Price  :  </b> {value.price} </ListGroup.Item>
                                 <ListGroup.Item> <b>Brand  :  </b> {value.brand} </ListGroup.Item>
-                                <ListGroup.Item> <b>Size : </b> {value.size}</ListGroup.Item>
+                                <ListGroup.Item> <b>Fabric : </b> {value.fabric}</ListGroup.Item>
                     </ListGroup>
 
                     <div className='button'>
                         <Button className="btn1" >
                           <MdEdit
                               onClick={()=>{
-                                navigate(`/editcoswomen/${value._id}`)
+                                navigate(`/editclothwomen/${value._id}`)
                               }}
                             />  
                         </Button>
@@ -73,8 +73,9 @@ import { MdDelete } from "react-icons/md";
                 
                 </Card>
 
+            </div>
+        ) 
 
-        </div>
-    )
- }
- export default CosWmCard
+    }
+
+    export default ClothWmCard
