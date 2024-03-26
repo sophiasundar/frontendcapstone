@@ -4,19 +4,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaSearch } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 
 
 function NavBar(){
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
     return(
         <>
               <Navbar bg="info" data-bs-theme="light">
                 <Container>
                 <Button variant="light">
-                  <Navbar.Brand href="/welcome" variant="light" >Item Catalog</Navbar.Brand>
+                  <Navbar.Brand href="/home" variant="light" >Item Catalog</Navbar.Brand>
                   </Button>{' '}
                   <Nav className="me-auto">
                   <Button variant="light" className='searchbtn' size="sm"><Nav.Link href="/displaylaptop"><FaSearch />   <b>Search</b></Nav.Link></Button>{' '}
@@ -39,7 +39,7 @@ function NavBar(){
                    <NavDropdown title="Electronics" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/displaylaptop">Laptop</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/displayphone">
                       phones
                     </NavDropdown.Item>
                     </NavDropdown>
@@ -49,7 +49,7 @@ function NavBar(){
                    {/* dropdown2*/}
                    <Button className='drop2' variant="light" size="sm"><Nav.Link href="#features"> 
                    <NavDropdown title="Cosmetics" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/displaylaptop">Men</NavDropdown.Item>
+                    <NavDropdown.Item href="/cosmeticsformen">Men</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.2">
                       Women
@@ -74,9 +74,9 @@ function NavBar(){
                    <Button className='drop4' variant="light" size="sm">
                     <Nav.Link href="#features"> 
                    <NavDropdown title="Add Items" id="basic-nav-dropdown">
-                     <NavDropdown.Item href="/displaylaptop">Add Laptops</NavDropdown.Item>
+                     <NavDropdown.Item href="/addlaptop">Add Laptops</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/addphone">
                      Add Phones
                     </NavDropdown.Item>
                     <NavDropdown.Divider />

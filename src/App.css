@@ -177,3 +177,90 @@
   display: inline-block;
   font-weight: 700;
 }
+
+.homeImg{
+  width:50%;
+  height:170%;
+  margin-left: 370px;
+}
+
+.homeh{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.conhome{
+  height:100%;
+}
+
+.about{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.subhead{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.pur{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.fun{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.sc{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.ex{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.mb-3{
+  margin-top: 30px;
+  margin-left: 120px;
+  margin-right: 20px;
+}
+.ph1{
+  width: 900px;
+}
+
+.ph2{
+  width: 900px;
+}
+
+.addbtn{
+  margin-left: 120px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.addbtn1{
+  margin-left: 220px;
+  margin-right: 220px;
+}
+
+.valid{
+  margin-left: 220px;
+  margin-top: 40px;
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+.titleform{
+  margin-left: 120px;
+  margin-top: 40px;
+}
+
+
+
+

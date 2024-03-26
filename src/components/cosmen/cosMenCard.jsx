@@ -7,8 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-   function LapCard({value,handleDelete}){
-
+    function CosMenCard({value,handleDelete}){
         const [show,setShow] = useState(false);
 
         const toggleSummary ={
@@ -18,6 +17,7 @@ import { MdDelete } from "react-icons/md";
         console.log(toggleSummary.display);
 
         const navigate = useNavigate();
+
 
         return(
             <div className='cardContainer'>
@@ -31,14 +31,14 @@ import { MdDelete } from "react-icons/md";
                     <ListGroup className="list-group-flush" >
                                 <ListGroup.Item> <b>Price  :  </b> {value.price} </ListGroup.Item>
                                 <ListGroup.Item> <b>Brand  :  </b> {value.brand} </ListGroup.Item>
-                                <ListGroup.Item><b>Display : </b> {value.display}</ListGroup.Item>
+                                <ListGroup.Item> <b>Size : </b> {value.size}</ListGroup.Item>
                     </ListGroup>
 
                     <div className='button'>
                         <Button className="btn1" >
                           <MdEdit
                               onClick={()=>{
-                                navigate(`/editlaptop/${value._id}`)
+                                navigate(`/editcosmen/${value._id}`)
                               }}
                             />  
                         </Button>
@@ -62,15 +62,12 @@ import { MdDelete } from "react-icons/md";
                         </div>
                             { show? <div className='itemDesp' >
                             <ListGroup className="list-group-flush" >
-                                <ListGroup.Item><b>Processor:</b> {value.processor}</ListGroup.Item>
-                                <ListGroup.Item><b>RAM</b> {value.ram} </ListGroup.Item>
-                                <ListGroup.Item><b>ROM</b> {value.rom} </ListGroup.Item>
+                                <ListGroup.Item><b>About This Item :</b> {value.about}</ListGroup.Item>
+                                
                             </ListGroup>
                             </div> 
                             :null}
-                            <ListGroup className="list-group-flush" >
-                                <ListGroup.Item><b>OS:</b> {value.os}</ListGroup.Item>
-                            </ListGroup>
+                            
                     </Card.Body>
                     
                 
@@ -81,4 +78,4 @@ import { MdDelete } from "react-icons/md";
         )
     }
 
-    export default LapCard;
+    export default CosMenCard;
