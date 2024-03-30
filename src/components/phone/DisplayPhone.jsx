@@ -5,9 +5,12 @@ import PhoneCard from './phoneCard.jsx';
 import NavBar from '../navBar/navBar.js';
 
 
+
    export function DisplayPhone(){
        const [phoneData, setPhoneData] = useState([])
-               
+       
+
+        
          const getPhones = ()=>{
             axios.get(`${API}/phones`)
             .then((res)=>{
@@ -36,6 +39,9 @@ import NavBar from '../navBar/navBar.js';
          return(
             <div>
                 <NavBar/>
+                
+
+
                  {
                     phoneData.map((item)=>{
                         return(

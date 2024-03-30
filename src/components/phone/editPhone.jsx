@@ -34,11 +34,11 @@ import { API } from '../global.js';
             const [name,setName] = useState(phones.name)
             const [price,setPrice] = useState(phones.price)
             const [brand,setBrand] = useState(phones.brand)
-            const [display,setDisplay] = useState(phones.display)
             const [resolution,setResolution] = useState(phones.resolution)
             const [ram,setRam] = useState(phones.ram)
             const [rom,setRom] = useState(phones.rom)
             const [os,setOs] = useState(phones.os)
+            const [camera,setCamera] = useState(phones.camera) 
             const [images,setImages] =useState(phones.images)
             
             const [validated, setValidated] = useState(false);
@@ -50,11 +50,11 @@ import { API } from '../global.js';
                    name: name,
                    price:price,
                    brand: brand,
-                   display:display,
                    resolution: resolution,
                    ram:ram,
                    rom:rom,
                    os:os,
+                   camera:camera,
                    images:images,
                 }
                 console.log(updatePhone)
@@ -67,9 +67,6 @@ import { API } from '../global.js';
                     return;
                  }else if(updatePhone.brand === ""){
                     setValidated("VALID: Brand is required");
-                    return;
-                 }else if(updatePhone.display === ""){
-                    setValidated("VALID: Display is required");
                     return;
                  }else if(updatePhone.resolution === ""){
                     setValidated("VALID: Resolution is required");
@@ -86,7 +83,10 @@ import { API } from '../global.js';
                  }else if(updatePhone.images === ""){
                     setValidated("VALID: Images is required");
                     return;
-                 }else{
+                 }else if(updatePhone.camera === ""){
+                    setValidated("VALID: Camera spec is required");
+                    return;
+                  }else{
                     setValidated("")
                  }
         
@@ -140,13 +140,13 @@ import { API } from '../global.js';
                         />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="diplay">
-                        <Form.Label>Phone Display :</Form.Label>
-                        <Form.Control className='ph4' type="text" placeholder="Enter The Phone Display" 
-                             value={display}
-                             onChange={(e)=>{
-                               setDisplay(e.target.value)
-                             }} 
+                    <Form.Group className="mb-3" controlId="camera">
+                        <Form.Label>Phone Camera :</Form.Label>
+                        <Form.Control className='ph1' type="text" placeholder="Enter The Phone Camera Spec"
+                              value={camera}
+                              onChange={(e)=>
+                                {setCamera(e.target.value)}
+                              }    
                         />
                     </Form.Group>
 

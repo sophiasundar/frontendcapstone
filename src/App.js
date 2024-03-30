@@ -20,6 +20,10 @@ import { EditClothMen } from './components/clothmen/editClothMen';
 import { DisplayClothWm } from './components/clothwomen/DisplayClothWm';
 import AddClothWm from './components/clothwomen/addClothWm';
 import { EditClothWm } from './components/clothwomen/editClothWm';
+import SignUp from './components/signup/signup';
+import SignupForm from './components/signup/signUpForm';
+import { ProtectedRoute } from './components/protectedRoute';
+
 
 
 
@@ -38,31 +42,119 @@ function App() {
 
         <Routes>
  
-          <Route path='/home' element={<HomePage/>}></Route> 
+          <Route path='/' element={<SignUp/>}></Route>
+          <Route path='/signup' element={<SignupForm/>}></Route>
           
-          <Route path='/displaylaptop' element={ <DisplayLap/> }></Route>
-          <Route path='/addlaptop' element={<AddLaps lapData={lapData} setLapData={setLapData} />}></Route>
-          <Route path='/editlaptop/:id' element={<EditLaps lapData={lapData} setLapData={setLapData}/>}></Route>
           
-          <Route path='/displayphone' element={ <DisplayPhone/> } ></Route>
-          <Route path='/addphone' element={<AddPhones phoneData={phoneData} setPhoneData={setPhoneData} />} ></Route>
-          <Route path='/editphone/:id' element={<EditPhones phoneData={phoneData} setPhoneData={setPhoneData} />}></Route>
+          
+          <Route path='/home' 
+                element={
+                  <ProtectedRoute>
+                      <HomePage />
+                  </ProtectedRoute>
+                }
+          />
+          <Route path='/displaylaptop' element={ 
+                          <ProtectedRoute>
+                              <DisplayLap/> 
+                        </ProtectedRoute>
+        }></Route>
+
+          <Route path='/addlaptop' element={
+             <ProtectedRoute>
+                    <AddLaps lapData={lapData} setLapData={setLapData} />
+          </ProtectedRoute>
+          }></Route>
+
+          <Route path='/editlaptop/:id' element={
+             <ProtectedRoute>
+          <EditLaps lapData={lapData} setLapData={setLapData}/>
+          </ProtectedRoute>
+          }></Route>
+          
+          <Route path='/displayphone' element={ 
+             <ProtectedRoute>
+          <DisplayPhone/> 
+          </ProtectedRoute>
+          } ></Route>
+          <Route path='/addphone' element={
+             <ProtectedRoute>
+          <AddPhones phoneData={phoneData} setPhoneData={setPhoneData} />
+          </ProtectedRoute>
+          } ></Route>
+          <Route path='/editphone/:id' element={
+             <ProtectedRoute>
+          <EditPhones phoneData={phoneData} setPhoneData={setPhoneData} />
+          </ProtectedRoute>
+          }></Route>
        
-          <Route path='/cosmeticsformen' element={<DisplayCosMen/> }></Route>
-          <Route path='/addcosmen' element={<AddCosMen cosMenData={cosMenData} setCosMenData={setCosMenData}/> }></Route>
-          <Route path='/editcosmen/:id' element={<EditCosMen cosMenData={cosMenData} setCosMenData={setCosMenData}/>}></Route>
+          <Route path='/cosmeticsformen' element={
+             <ProtectedRoute>
+          <DisplayCosMen/> 
+          </ProtectedRoute>
+          }></Route>
 
-          <Route path='/cosmeticsforwomen' element={<DisplayCosWm />}></Route>
-          <Route path='/addcoswomen' element={<AddCosWm cosWmData={cosWmData} setCosWmData={setCosWmData}/>}></Route>
-          <Route path='/editcoswomen/:id' element={<EditCosWm cosWmData={cosWmData} setCosWmData={setCosWmData} />}></Route>
+          <Route path='/addcosmen' element={
+            <ProtectedRoute>
+          <AddCosMen cosMenData={cosMenData} setCosMenData={setCosMenData}/> 
+          </ProtectedRoute>
+          }></Route>
 
-          <Route path='/clothingformen' element={<DisplayClothMen />}></Route>
-          <Route path='/addclothmen' element={<AddClothMen clothMenData={clothMenData} setClothMenData={setClothMenData}/>}></Route>
-          <Route path='/editclothmen/:id' element={<EditClothMen clothMenData={clothMenData} setClothMenData={setClothMenData}/>}></Route>
+          <Route path='/editcosmen/:id' element={
+            <ProtectedRoute>
+          <EditCosMen cosMenData={cosMenData} setCosMenData={setCosMenData}/>
+          </ProtectedRoute>
+          }></Route>
 
-          <Route path='/clothingforwomen' element={<DisplayClothWm/>}></Route>
-          <Route path='/addclothwomen' element={<AddClothWm clothWmData={clothWmData} setClothWmData={setClothWmData} />}></Route>
-          <Route path='/editclothwomen/:id' element={<EditClothWm clothWmData={clothWmData} setClothWmData={setClothWmData}/>} ></Route>
+          <Route path='/cosmeticsforwomen' element={
+            <ProtectedRoute>
+          <DisplayCosWm />
+          </ProtectedRoute>
+          }></Route>
+
+          <Route path='/addcoswomen' element={
+             <ProtectedRoute>
+          <AddCosWm cosWmData={cosWmData} setCosWmData={setCosWmData}/>
+             </ProtectedRoute>
+          }></Route>
+
+          <Route path='/editcoswomen/:id' element={
+            <ProtectedRoute>
+          <EditCosWm cosWmData={cosWmData} setCosWmData={setCosWmData} />
+          </ProtectedRoute>
+          }></Route>
+
+          <Route path='/clothingformen' element={
+            <ProtectedRoute>
+          <DisplayClothMen />
+            </ProtectedRoute>
+          }></Route>
+          <Route path='/addclothmen' element={
+             <ProtectedRoute>
+          <AddClothMen clothMenData={clothMenData} setClothMenData={setClothMenData}/>
+             </ProtectedRoute>
+          }></Route>
+          <Route path='/editclothmen/:id' element={
+              <ProtectedRoute>
+          <EditClothMen clothMenData={clothMenData} setClothMenData={setClothMenData}/>
+               </ProtectedRoute>
+          }></Route>
+
+          <Route path='/clothingforwomen' element={
+            <ProtectedRoute>
+          <DisplayClothWm/>
+          </ProtectedRoute>
+          }></Route>
+          <Route path='/addclothwomen' element={
+              <ProtectedRoute>
+          <AddClothWm clothWmData={clothWmData} setClothWmData={setClothWmData} />
+             </ProtectedRoute>
+          }></Route>
+          <Route path='/editclothwomen/:id' element={
+               <ProtectedRoute>
+          <EditClothWm clothWmData={clothWmData} setClothWmData={setClothWmData}/>
+          </ProtectedRoute>
+          } ></Route>
 
 
         </Routes>

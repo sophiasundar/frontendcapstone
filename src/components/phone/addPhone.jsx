@@ -8,11 +8,11 @@ function AddPhones({setPhoneData}){
          const [name,setName] = useState("")
          const [price,setPrice] = useState("")
          const [brand,setBrand] = useState("")
-         const [display,setDisplay] = useState("")
          const [resolution,setResolution] = useState("")
          const [ram,setRam] = useState("")
          const [rom,setRom] = useState("")
          const [os,setOs] = useState("")
+         const [camera,setCamera] = useState("") 
          const [images,setImages] =useState("")
          const [validated, setValidated] = useState(false);
 
@@ -23,11 +23,11 @@ function AddPhones({setPhoneData}){
                 name: name,
                 price:price,
                 brand: brand,
-                display:display,
                 resolution: resolution,
                 ram:ram,
                 rom:rom,
                 os:os,
+                camera:camera,
                 images:images,
              }
              console.log(newPhone)
@@ -41,9 +41,6 @@ function AddPhones({setPhoneData}){
             return;
          }else if(newPhone.brand === ""){
             setValidated("VALID: Brand is required");
-            return;
-         }else if(newPhone.display === ""){
-            setValidated("VALID: Display is required");
             return;
          }else if(newPhone.resolution === ""){
             setValidated("VALID: Resolution is required");
@@ -60,7 +57,10 @@ function AddPhones({setPhoneData}){
          }else if(newPhone.images === ""){
             setValidated("VALID: Images is required");
             return;
-         }else{
+         }else if(newPhone.camera === ""){
+          setValidated("VALID: Camera spec is required");
+          return;
+        }else{
             setValidated("")
          }
 
@@ -88,6 +88,9 @@ function AddPhones({setPhoneData}){
                 <div>  
 
               <Form>
+
+              <h4 className='titleform' >Add Phone</h4>
+
                 <h4 className="valid" >{validated}</h4>
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Phone Name :</Form.Label>
@@ -119,13 +122,13 @@ function AddPhones({setPhoneData}){
                         />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="diplay">
-                        <Form.Label>Phone Display :</Form.Label>
-                        <Form.Control className='ph4' type="text" placeholder="Enter The Phone Display" 
-                             value={display}
-                             onChange={(e)=>{
-                               setDisplay(e.target.value)
-                             }} 
+                    <Form.Group className="mb-3" controlId="camera">
+                        <Form.Label>Phone Camera :</Form.Label>
+                        <Form.Control className='ph1' type="text" placeholder="Enter The Phone Camera Spec"
+                              value={camera}
+                              onChange={(e)=>
+                                {setCamera(e.target.value)}
+                              }    
                         />
                     </Form.Group>
 

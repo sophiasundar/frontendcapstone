@@ -5,6 +5,7 @@ import LapCard from './lapCard.jsx';
 import NavBar from '../navBar/navBar.js';
 
 
+
     export function DisplayLap(){
         const [lapData, setLapData] = useState([]);
 
@@ -35,6 +36,8 @@ import NavBar from '../navBar/navBar.js';
         return(
             <div>
                <NavBar/>
+              
+
              {lapData.map((item)=>{
                      return(
                         <>

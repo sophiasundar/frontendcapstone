@@ -3,14 +3,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FaSearch } from "react-icons/fa";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 function NavBar(){
-  // const navigate = useNavigate();
+
+  
+
+  const navigate = useNavigate()
+  
     return(
         <>
               <Navbar bg="info" data-bs-theme="light">
@@ -18,9 +21,18 @@ function NavBar(){
                 <Button variant="light">
                   <Navbar.Brand href="/home" variant="light" >Item Catalog</Navbar.Brand>
                   </Button>{' '}
+                 
                   <Nav className="me-auto">
-                  <Button variant="light" className='searchbtn' size="sm"><Nav.Link href="/displaylaptop"><FaSearch />   <b>Search</b></Nav.Link></Button>{' '}
-                  <Button variant="dark" className='logoutbtn' size="sm"><Nav.Link href="#features"><b>Log Out</b></Nav.Link></Button>{' '}
+                  <Button className='addbtn2' variant="primary"
+                                onClick={()=>{
+                                  navigate('/home')
+                                }}
+                    >
+                        Home page
+                    </Button>
+                  <Button variant="dark" className='logoutbtn'  size="sm" ><Nav.Link href="/"
+                            
+                  ><b>Log Out</b></Nav.Link></Button>{' '}
                   
                   </Nav>
                 </Container>

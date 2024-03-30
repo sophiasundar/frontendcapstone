@@ -20,6 +20,9 @@ import { MdDelete } from "react-icons/md";
         const navigate = useNavigate();
 
         return(
+            
+                
+
             <div className='cardContainer'>
                 <Card className='card' >
                     <div>
@@ -76,8 +79,9 @@ import { MdDelete } from "react-icons/md";
                 
                 </Card>
 
-
+             
             </div>
+            
         )
     }
 

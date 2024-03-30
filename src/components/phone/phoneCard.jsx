@@ -61,7 +61,7 @@ function PhoneCard({value, handleDelete}){
                         </div>
                             { show? <div className='itemDesp' >
                             <ListGroup className="list-group-flush" >
-                                <ListGroup.Item><b>Main Camera:</b> {value.maincamera}</ListGroup.Item>
+                                <ListGroup.Item><b>Main Camera:</b> {value.camera}</ListGroup.Item>
                                 <ListGroup.Item><b>RAM</b> {value.ram} </ListGroup.Item>
                                 <ListGroup.Item><b>ROM</b> {value.rom} </ListGroup.Item>
                             </ListGroup>
