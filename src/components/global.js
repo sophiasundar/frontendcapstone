@@ -1,1 +1,1 @@
-export const API = 'http://localhost:8000';
+export const API = 'https://b47-backend-fs-1.onrender.com';
