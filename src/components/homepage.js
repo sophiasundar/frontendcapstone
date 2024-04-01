@@ -16,9 +16,12 @@ import HomeCard from './homePageCard';
 
 
 
+
 function HomePage( ){
   const [searchResults, setSearchResults] = useState([]); 
   const [searchTerm, setSearchTerm] = useState('');
+  
+
   
 
     
@@ -40,8 +43,9 @@ function HomePage( ){
       }
 
       useEffect(()=>{
-        // const initialSearchTerm = 'query';
+        
         setSearchTerm();
+        
       }, []);
 
     return(
@@ -72,7 +76,7 @@ function HomePage( ){
                     </Row>
                   </Form>
                   <Button variant="dark" className='logoutbtn' size="sm"
-                        
+                          
                   ><Nav.Link href="/"><b>Log Out</b></Nav.Link></Button>{' '}
                        
                   </Nav>

@@ -56,7 +56,7 @@ const SignUp=()=>{
               console.log(data1)
               const authToken = localStorage.setItem("x-auth-token",data1.token);
               console.log("localStorage", authToken);
-               
+              
               alert('Successfully LoggedIn')
                navigate("/home");
            } else {
@@ -70,7 +70,7 @@ const SignUp=()=>{
            }
          };
 
-    
+       
     return(
         <div className="scontainer">
 
