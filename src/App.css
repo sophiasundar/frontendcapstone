@@ -267,7 +267,7 @@ justify-content: center;
 
 .form{
   width: 1000px;
-height: 500px;
+height: 750px;
 display: flex;
 border-radius: 10px;
 }
@@ -281,7 +281,7 @@ align-items: center;
 justify-content: center;
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;
-margin-left: 30px;
+margin-left: 10px;
 
 }
 
@@ -323,7 +323,7 @@ text-overflow: clip;
 .fig{
   height: 100px;
   width:350px;
-  margin-top: -20px;
+  margin-top: 50px;
 }
 
 .fig1{
@@ -343,13 +343,23 @@ text-overflow: clip;
 }
 
 .loginbtn{
-  margin-top: 30px;
-  margin-left: 110px;
+  margin-top: 2px;
+  margin-left: 50px;
+
 }
 
 .hlogin{
-  margin-top: 30px;
-  margin-left: 70px;
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+.input{
+  margin-left: -80px;
+  width: 350px;
+}
+
+.label{
+  margin-left: -80px;
 }
 
 .signbtn{

@@ -81,7 +81,7 @@ const SignUp=()=>{
         <Figure className="fig">
       <Figure.Image
         alt="authImage"
-        src="https://www.smoothtalker.com/wp-content/uploads/2021/10/login@4x-1024x904.png"
+        src="https://cdn.arstechnica.net/wp-content/uploads/2022/03/multi-factor-authentication-mfa.jpeg"
       />
       
     </Figure>
@@ -93,8 +93,10 @@ const SignUp=()=>{
          <h6 className="svalid">{validated}</h6>
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <b><Form.Label>Email address</Form.Label></b>
-        <Form.Control
+        <b><Form.Label className="label">Email address</Form.Label></b>
+        <Form.Control 
+          className="input"
+          type="email"
           aria-label="Enter Your Email Address"
           placeholder="Enter Your Email Address"
           aria-describedby="inputGroup-sizing-sm"
@@ -107,9 +109,11 @@ const SignUp=()=>{
     
           <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-      <b><Form.Label>Password</Form.Label></b>
+      <b><Form.Label className="label">Password</Form.Label></b>
         
         <Form.Control
+        className="input"
+        type="password"
           aria-label="Enter Your Password"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Enter Your Password"
@@ -128,7 +132,7 @@ const SignUp=()=>{
     
     
 
-     <div>
+     <div >
     <h6 className="hlogin">Already have an account? Just LogIn </h6>
     </div>
     

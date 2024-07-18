@@ -10,9 +10,15 @@ import { useNavigate } from 'react-router-dom';
 
 function NavBar(){
 
-  
+    
 
   const navigate = useNavigate()
+
+  const  handleLogout=()=>{
+    localStorage.removeItem("x-auth-token");
+    console.log("Token removed:", !localStorage.getItem("x-auth-token")); 
+    navigate('/')
+  }
   
     return(
         <>
@@ -31,7 +37,7 @@ function NavBar(){
                         Home page
                     </Button>
                   <Button variant="dark" className='logoutbtn'  size="sm" ><Nav.Link href="/"
-                            
+                            onClick={handleLogout}
                   ><b>Log Out</b></Nav.Link></Button>{' '}
                   
                   </Nav>
