@@ -192,7 +192,7 @@ function HomePage( ){
 
             <p ><b>Functionality : </b></p> 
             <p className="fun"><b>A typical item catalog includes features such as item listings, 
-            search functionality, filtering options, and item descriptions. It may also include user authentication for features like saving favorites or personalized recommendations and aslo CRUD operations.</b></p>
+            search functionality, filtering options, and item descriptions. It also include user authentication and also CRUD operations.</b></p>
 
             <p ><b>Scope: </b></p> 
             <p className="sc"><b>The scope of an item catalog is to provide information and promote items to users, rather than managing inventory or facilitating transactions. It may be used for 
