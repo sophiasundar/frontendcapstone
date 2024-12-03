@@ -10,7 +10,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
         return(
             <div className='cardContainer'>
-                <Card  >
+                <Card className='searchCard'  >
                     <div>
                 <Card.Img className='cardImg' alt={value.name}  variant="top" src={value.images} /> </div>
                     {/* <Card.Body> */}

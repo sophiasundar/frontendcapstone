@@ -1,131 +1,113 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React, { useState } from 'react';
+import { Container, Navbar, Nav, NavDropdown, Button, Form, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
+function NavBar() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
-
-
-function NavBar(){
-
-    
-
-  const navigate = useNavigate()
-
-  const  handleLogout=()=>{
+  const handleLogout = () => {
     localStorage.removeItem("x-auth-token");
-    console.log("Token removed:", !localStorage.getItem("x-auth-token")); 
-    navigate('/')
-  }
-  
-    return(
-        <>
-              <Navbar bg="info" data-bs-theme="light">
-                <Container>
-                <Button variant="light">
-                  <Navbar.Brand href="/home" variant="light" >Item Catalog</Navbar.Brand>
-                  </Button>{' '}
-                 
-                  <Nav className="me-auto">
-                  <Button className='addbtn2' variant="primary"
-                                onClick={()=>{
-                                  navigate('/home')
-                                }}
-                    >
-                        Home page
-                    </Button>
-                  <Button variant="dark" className='logoutbtn'  size="sm" ><Nav.Link href="/"
-                            onClick={handleLogout}
-                  ><b>Log Out</b></Nav.Link></Button>{' '}
-                  
-                  </Nav>
-                </Container>
-              </Navbar>
+    window.location.reload();
+  };
 
-              <Navbar bg="secondary" data-bs-theme="dark">
-                <Container>
-                
-                <Navbar.Brand variant="light" href="">Category</Navbar.Brand>
-                  
-                  
-                  <Nav className="me-auto">
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!searchTerm) {
+      console.warn('Please enter a search term');
+      return;
+    }
+    navigate(`/search?q=${searchTerm}`);
+  };
 
-                   {/* dropdown1*/}
-                  <Button className='drop1' variant="light" size="sm"><Nav.Link href="#features"> 
-                   <NavDropdown title="Electronics" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/displaylaptop">Laptop</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/displayphone">
-                      phones
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                    </Nav.Link>
-                  </Button>{' '}
+  return (
+    <>
+      {/* Top Navbar */}
+      <Navbar bg="info" expand="lg" className="mb-3" variant="light">
+        <Container fluid>
+          <OverlayTrigger
+            placement="bottom"
+            overlay={<Tooltip id="tooltip-bottom">Go to Home Page</Tooltip>}
+          >
+            <Navbar.Brand href="/home" className="text-light">
+              Item Catalog
+            </Navbar.Brand>
+          </OverlayTrigger>
 
-                   {/* dropdown2*/}
-                   <Button className='drop2' variant="light" size="sm"><Nav.Link href="#features"> 
-                   <NavDropdown title="Cosmetics" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/cosmeticsformen">Men</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/cosmeticsforwomen">
-                      Women
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                    </Nav.Link>
-                  </Button>{' '}
+          <Navbar.Toggle aria-controls="navbar-content" />
 
-                   {/* dropdown3*/}
-                   <Button className='drop3' variant="light"  size="sm"><Nav.Link href="#features"> 
-                   <NavDropdown title="Clothing" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/clothingformen">Men's wear</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/clothingforwomen">
-                      Women's wear
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                    </Nav.Link>
-                  </Button>{' '}
+          <Navbar.Collapse id="navbar-content">
+            <Nav className="me-auto">
+              <Form className="d-flex" onSubmit={handleSearch}>
+                <Form.Control
+                  type="text"
+                  placeholder="Search items..."
+                  className="me-2"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <Button variant="outline-light" onClick={handleSearch}>
+                  <FaSearch />
+                </Button>
+              </Form>
+            </Nav>
 
-                   {/* dropdown4*/}
-                   <Button className='drop4' variant="light" size="sm">
-                    <Nav.Link href="#features"> 
-                   <NavDropdown title="Add Items" id="basic-nav-dropdown">
-                     <NavDropdown.Item href="/addlaptop">Add Laptops</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/addphone">
-                     Add Phones
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/addcosmen">
-                     Add Cosmetics for Men
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/addcoswomen">
-                     Add Cosmetics for Women
-                    </NavDropdown.Item>
-                    
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/addclothmen">
-                     Add Clothing for Men
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/addclothwomen">
-                     Add Clothing for Women
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                    
-                    
-                    </Nav.Link>
-                  </Button>{' '}
+            <Nav>
+              <Button variant="dark" onClick={handleLogout}>
+                <b>Log Out</b>
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-                   </Nav>
-                </Container>
-              </Navbar>
-             
-        </>
-    )
+      {/* Category Navbar */}
+      <Navbar bg="secondary" expand="lg" variant="dark">
+        <Container fluid>
+          <Navbar.Brand>Category</Navbar.Brand>
+
+          <Navbar.Toggle aria-controls="category-navbar-content" />
+
+          <Navbar.Collapse id="category-navbar-content">
+            <Nav className="me-auto">
+              <NavDropdown title="Electronics" id="electronics-dropdown">
+                <NavDropdown.Item href="/displaylaptop">Laptops</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/displayphone">Phones</NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="Cosmetics" id="cosmetics-dropdown">
+                <NavDropdown.Item href="/cosmeticsformen">Men</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/cosmeticsforwomen">Women</NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="Clothing" id="clothing-dropdown">
+                <NavDropdown.Item href="/clothingformen">Men's Wear</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/clothingforwomen">Women's Wear</NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="Add Items" id="add-items-dropdown">
+                <NavDropdown.Item href="/addlaptop">Add Laptops</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/addphone">Add Phones</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/addcosmen">Add Cosmetics for Men</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/addcoswomen">Add Cosmetics for Women</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/addclothmen">Add Clothing for Men</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/addclothwomen">Add Clothing for Women</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
+  );
 }
 
-export default NavBar
+export default NavBar;

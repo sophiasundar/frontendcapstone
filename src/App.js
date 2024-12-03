@@ -23,7 +23,7 @@ import { EditClothWm } from './components/clothwomen/editClothWm';
 import SignUp from './components/signup/signup';
 import SignupForm from './components/signup/signUpForm';
 import { ProtectedRoute } from './components/protectedRoute';
-
+import ResultPage from './components/ResultPage';
 
 
 
@@ -155,7 +155,14 @@ function App() {
           <EditClothWm clothWmData={clothWmData} setClothWmData={setClothWmData}/>
           </ProtectedRoute>
           } ></Route>
-
+           
+           <Route path='/search' element={
+               <ProtectedRoute>
+                 <ResultPage/>
+          </ProtectedRoute>
+           
+          } ></Route>
+          
 
         </Routes>
       
