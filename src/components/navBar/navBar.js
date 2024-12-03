@@ -30,7 +30,7 @@ function NavBar() {
             placement="bottom"
             overlay={<Tooltip id="tooltip-bottom">Go to Home Page</Tooltip>}
           >
-            <Navbar.Brand href="/home" className="text-light">
+            <Navbar.Brand href="/home" className="text-light  me-3">
               Item Catalog
             </Navbar.Brand>
           </OverlayTrigger>
@@ -43,11 +43,11 @@ function NavBar() {
                 <Form.Control
                   type="text"
                   placeholder="Search items..."
-                  className="me-2"
+                  className="me-auto"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <Button variant="outline-light" onClick={handleSearch}>
+                <Button  variant="outline-light" onClick={handleSearch}>
                   <FaSearch />
                 </Button>
               </Form>
@@ -55,7 +55,7 @@ function NavBar() {
 
             <Nav>
               <Button variant="dark" onClick={handleLogout}>
-                <b>Log Out</b>
+                Log Out
               </Button>
             </Nav>
           </Navbar.Collapse>
@@ -65,31 +65,31 @@ function NavBar() {
       {/* Category Navbar */}
       <Navbar bg="secondary" expand="lg" variant="dark">
         <Container fluid>
-          <Navbar.Brand>Category</Navbar.Brand>
+          <Navbar.Brand className='me-4'>Category</Navbar.Brand>
 
           <Navbar.Toggle aria-controls="category-navbar-content" />
 
           <Navbar.Collapse id="category-navbar-content">
             <Nav className="me-auto">
-              <NavDropdown title="Electronics" id="electronics-dropdown">
+              <NavDropdown className='me-1' title="Electronics" id="electronics-dropdown">
                 <NavDropdown.Item href="/displaylaptop">Laptops</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/displayphone">Phones</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown title="Cosmetics" id="cosmetics-dropdown">
+              <NavDropdown className='me-1' title="Cosmetics" id="cosmetics-dropdown">
                 <NavDropdown.Item href="/cosmeticsformen">Men</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/cosmeticsforwomen">Women</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown title="Clothing" id="clothing-dropdown">
+              <NavDropdown className='me-1' title="Clothing" id="clothing-dropdown">
                 <NavDropdown.Item href="/clothingformen">Men's Wear</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/clothingforwomen">Women's Wear</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown title="Add Items" id="add-items-dropdown">
+              <NavDropdown  className='me-1' title="Add Items" id="add-items-dropdown">
                 <NavDropdown.Item href="/addlaptop">Add Laptops</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/addphone">Add Phones</NavDropdown.Item>

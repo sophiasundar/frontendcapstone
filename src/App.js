@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import { DisplayLap } from './components/laptop/DisplayLap';
@@ -34,6 +35,7 @@ function App() {
   const [cosWmData, setCosWmData] = useState([]);
   const [clothMenData, setClothMenData] = useState([]);
   const [clothWmData, setClothWmData] = useState([]);
+  const [homePhoneData, setHomePhoneData] = useState([])
 
   return (
     <div className="App">
@@ -50,7 +52,7 @@ function App() {
           <Route path='/home' 
                 element={
                   <ProtectedRoute>
-                      <HomePage />
+                      <HomePage  homePhoneData={homePhoneData} setHomePhoneData={setHomePhoneData}/>
                   </ProtectedRoute>
                 }
           />

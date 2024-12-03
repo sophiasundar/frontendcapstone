@@ -62,7 +62,7 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light signup">
       <div className="p-4 bg-white rounded shadow-sm w-100" style={{ maxWidth: '400px' }}>
         <h3 className="text-center text-primary mb-4"><FaUserPlus /> Create Account</h3>
 
@@ -70,7 +70,7 @@ const SignupForm = () => {
         {success && <Alert variant="success">Account created successfully! Redirecting...</Alert>}
 
         <Form onSubmit={handleSubmit} noValidate>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Label><b>Email Address</b></Form.Label>
             <Form.Control
               type="email"
@@ -82,7 +82,7 @@ const SignupForm = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-4" controlId="formBasicPassword">
             <Form.Label><b>Password</b></Form.Label>
             <Form.Control
               type="password"

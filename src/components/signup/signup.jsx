@@ -61,7 +61,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light login ">
       <div className="p-4 bg-white rounded shadow-sm w-100" style={{ maxWidth: '450px' }}>
         <div className="text-center">
           <Figure>
@@ -71,13 +71,13 @@ const SignUp = () => {
               src="https://cdn.arstechnica.net/wp-content/uploads/2022/03/multi-factor-authentication-mfa.jpeg"
             />
           </Figure>
-          <h3 className="text-primary mb-3"><FaSignInAlt /> Login</h3>
+          <h3 className="text-primary mb-2"><FaSignInAlt /> Login</h3>
         </div>
 
         {error && <Alert variant="danger">{error}</Alert>}
 
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Label><b>Email Address</b></Form.Label>
             <Form.Control
               type="email"
@@ -87,7 +87,7 @@ const SignUp = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-4" controlId="formBasicPassword">
             <Form.Label><b>Password</b></Form.Label>
             <Form.Control
               type="password"
@@ -97,7 +97,7 @@ const SignUp = () => {
             />
           </Form.Group>
 
-          <div className="d-grid gap-2">
+          <div className="d-grid gap-2 w-4">
             <Button variant="primary" type="submit" disabled={state === "Submitting..."}>
               {state}
             </Button>

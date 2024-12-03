@@ -38,14 +38,14 @@ import { MdDelete } from "react-icons/md";
                     </ListGroup>
 
                     <div className='button'>
-                        <Button className="btn1" >
+                        <Button className="btn1" variant="success" >
                           <MdEdit
                               onClick={()=>{
                                 navigate(`/editlaptop/${value._id}`)
                               }}
                             />  
                         </Button>
-                        <Button variant="contained" className="btn2" >
+                        <Button variant="danger" className="btn2" >
                           <MdDelete
                                onClick={()=>handleDelete(value.id)}
                             /> 

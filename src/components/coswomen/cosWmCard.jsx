@@ -22,8 +22,9 @@ import { MdDelete } from "react-icons/md";
         <div className='cardContainer' >
 
 <Card className='card' >
-                    <div>
-                <Card.Img className='cardImg' alt={value.name}  variant="top" src={value.images} /> </div>
+                    <div className='cardImg'>
+                <Card.Img  alt={value.name}  variant="top" src={value.images} /> 
+                </div>
                     {/* <Card.Body> */}
                         <Card.Title className="title" ><b>{value.name}</b></Card.Title>
                     {/* </Card.Body> */}
@@ -35,14 +36,14 @@ import { MdDelete } from "react-icons/md";
                     </ListGroup>
 
                     <div className='button'>
-                        <Button className="btn1" >
+                        <Button className="btn1"  variant="success" >
                           <MdEdit
                               onClick={()=>{
                                 navigate(`/editcoswomen/${value._id}`)
                               }}
                             />  
                         </Button>
-                        <Button variant="contained" className="btn2" >
+                        <Button   variant="danger" className="btn2" >
                           <MdDelete
                                onClick={()=>handleDelete(value.id)}
                             /> 

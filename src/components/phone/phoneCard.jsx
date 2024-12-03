@@ -35,14 +35,14 @@ function PhoneCard({value, handleDelete}){
                     </ListGroup>
 
                     <div className='button'>
-                        <Button className="btn1" >
+                        <Button className="btn1" variant="success" >
                           <MdEdit
                               onClick={()=>{
                                 navigate(`/editphone/${value._id}`)
                               }}
                             />  
                         </Button>
-                        <Button variant="contained" className="btn2" >
+                        <Button variant="danger" className="btn2" >
                           <MdDelete
                                onClick={()=>handleDelete(value.id)}
                             /> 
