@@ -28,6 +28,7 @@ import ResultPage from './components/ResultPage';
 
 
 
+
 function App() {
   const [lapData, setLapData] = useState([]);
   const [phoneData, setPhoneData] = useState([]);
@@ -39,19 +40,20 @@ function App() {
 
   return (
     <div className="App">
-      
+
       <BrowserRouter>
 
         <Routes>
  
           <Route path='/' element={<SignUp/>}></Route>
           <Route path='/signup' element={<SignupForm/>}></Route>
-          
+         
           
           
           <Route path='/home' 
                 element={
                   <ProtectedRoute>
+                    
                       <HomePage  homePhoneData={homePhoneData} setHomePhoneData={setHomePhoneData}/>
                   </ProtectedRoute>
                 }

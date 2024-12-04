@@ -38,7 +38,7 @@ export const HomeRecom = () => {
   };
 
   return (
-    <Card className="py-1 position-relative scrollcard " style={{ width: '28rem' }}>
+    <Card className="py-1 position-relative scrollcard " style={{ width: '38.5rem' }}>
       <h2>Top Deals On Smartphones</h2>
       
       {/* Left Scroll Button */}
