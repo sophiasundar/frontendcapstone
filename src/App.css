@@ -133,31 +133,44 @@ form .form-control {
   text-align: center;
   text-decoration: underline;
 }
-
+/* General Styling */
 .conhome {
   background-color: #f8f9fa;
 }
 
+/* Hero Section */
 .hero-section {
   background-color: #007bff;
   color: white;
-  padding: 60px 20px;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .hero-section h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .hero-section p {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: 10px 0;
 }
 
-.recommendation h2 {
+.hero-section button {
+  font-size: 1rem;
+}
+
+/* Recommendations Section */
+#recommendations {
+  padding: 20px 0;
+}
+
+#recommendations h2 {
   font-size: 1.8rem;
   font-weight: bold;
 }
 
+/* About Section */
 #about h3 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -173,12 +186,67 @@ form .form-control {
   line-height: 1.6;
 }
 
+/* Footer Styling */
 footer {
   background-color: #343a40;
   color: white;
   padding: 20px 0;
   text-align: center;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+
+  .hero-section button {
+    font-size: 0.9rem;
+  }
+
+  #about h3 {
+    font-size: 1.8rem;
+  }
+
+  #about h5 {
+    font-size: 1.2rem;
+  }
+
+  #about p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-section p {
+    font-size: 0.8rem;
+  }
+
+  .hero-section button {
+    font-size: 0.8rem;
+  }
+
+  #about h3 {
+    font-size: 1.6rem;
+  }
+
+  #about h5 {
+    font-size: 1.1rem;
+  }
+
+  #about p {
+    font-size: 0.85rem;
+  }
+}
+
 
 
 
@@ -194,7 +262,7 @@ footer {
 
 .scrollcard{
   margin-top: 20px;
-  margin-left: 85px;
+  margin-left: 50px;
 }
 
 /* Scroll buttons */

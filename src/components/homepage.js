@@ -11,6 +11,7 @@ import Footer from './footer';
 const HomePage = () => {
   return (
     <div className="conhome bg-light">
+      {/* Navbar */}
       <NavBar />
 
       {/* Hero Section */}
@@ -35,32 +36,36 @@ const HomePage = () => {
 
       {/* About Section */}
       <Container id="about" className="py-5">
-        <h3>About Us</h3>
+        <h3 className="text-center mb-4">About Us</h3>
         <Row>
-          <Col md={6}>
+          <Col md={6} className="mb-4">
             <h5>Purpose</h5>
             <p>
-              Our item catalog is designed to showcase and present items or products to users. It serves as a digital representation, allowing users to browse, search, and view detailed information about each item.
+              Our item catalog is designed to showcase and present items or products to users. It serves as a digital
+              representation, allowing users to browse, search, and view detailed information about each item.
             </p>
           </Col>
-          <Col md={6}>
+          <Col md={6} className="mb-4">
             <h5>Functionality</h5>
             <p>
-              The catalog features item listings, search functionality, filtering options, and detailed item descriptions. Additionally, it offers user authentication and CRUD operations for managing items.
+              The catalog features item listings, search functionality, filtering options, and detailed item
+              descriptions. Additionally, it offers user authentication and CRUD operations for managing items.
             </p>
           </Col>
         </Row>
-        <Row className="mt-4">
-          <Col md={6}>
+        <Row>
+          <Col md={6} className="mb-4">
             <h5>Scope</h5>
             <p>
-              The catalog provides information and promotes items to users rather than managing inventory or facilitating transactions. It is ideal for informational or promotional purposes.
+              The catalog provides information and promotes items to users rather than managing inventory or
+              facilitating transactions. It is ideal for informational or promotional purposes.
             </p>
           </Col>
-          <Col md={6}>
+          <Col md={6} className="mb-4">
             <h5>Examples</h5>
             <p>
-              Examples include online marketplaces, digital product catalogs, library catalogs, and online galleries showcasing artwork or collections.
+              Examples include online marketplaces, digital product catalogs, library catalogs, and online galleries
+              showcasing artwork or collections.
             </p>
           </Col>
         </Row>
