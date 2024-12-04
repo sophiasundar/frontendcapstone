@@ -1,28 +1,27 @@
 // recommendation
-
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 
-const  HomeCard = ({value})=>{
-
-       
+const RecomCard  = ({value})=>{
+     
+    console.log(value)
 
         return(
            
-            <div className="scroll-wrapper d-flex overflow-auto py-2">
-            
-                <Card className="mx-2" style={{ width: '18rem' }} >
-                    <Card.Img variant="top" src={value.images} />
-                    <Card.Body>
-                    {/* <Card.Title>{value.name}</Card.Title> */}
-                    <Card.Text>Just{value.price}</Card.Text>
-                    </Card.Body>
+            <div className="d-flex justify-content-center">
+               <Card className="mx-2 my-2" style={{ width: '16rem' }}>
+                <Card.Img className='recomImg' variant="top" alt={value.name} src={value.images} />
+                <Card.Body>
+                    <Card.Title  className='titlerecom'>{value.name}</Card.Title>
+                    <Card.Text> Just {value.price}</Card.Text>
+                </Card.Body>
                 </Card>
+
     
       </div>
    
         )
 }
 
-export default HomeCard;
+export default RecomCard;

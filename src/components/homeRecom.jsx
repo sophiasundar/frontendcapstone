@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { API } from './global.js';
-import HomeCard from './homePageCard.jsx';
-// import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
+import RecomCard from './homeCard.jsx';
 
 export const HomeRecom = () => {
   const [homePhoneData, setHomePhoneData] = useState([]);
@@ -49,10 +48,11 @@ export const HomeRecom = () => {
         &#8249;
       </button>
 
-      <div className="scroll-container py-1" ref={scrollContainerRef}>
+      <div className="scroll-container py-1" ref={scrollContainerRef} style={{ overflowX: 'auto' }}>
         <div className="d-flex">
           {homePhoneData.map((item) => (
-            <HomeCard key={item._id} value={item} />
+            // <HomeCard key={item._id} value={item} />
+            <RecomCard key={item._id} value={item} />
           ))}
         </div>
       </div>
